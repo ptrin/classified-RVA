@@ -1,0 +1,161 @@
+/**
+* @name generate-centered-widths
+* Generates media queries for centering a certain amount of items by setting the item container's width.
+* Loops through the maxNumberOfItems variable, starting at the increment variable
+*
+* @param maxNumberOfItems {number} max number of items you want to loop through
+* @param itemWidth {px} individual width of each item
+* @param increment {number} increments each loop, used as the start point
+* @param itemContainerPadding {px} the padding of the items container, to be used in the max width
+**/
+.recently-viewed {
+  font: 13px/16px Arial, Verdana, sans-serif;
+  border-top: solid 1px #ccc;
+  display: none;
+  margin-top: 15px;
+  padding: 15px 0;
+  width: 100%;
+}
+.recently-viewed header {
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.recently-viewed h3 {
+  font: 13px/16px Arial, Verdana, sans-serif;
+  float: left;
+  font-weight: bold;
+  margin: 0;
+}
+.recently-viewed #ClearHistoryRVA {
+  color: #000066;
+  float: right;
+}
+.recently-viewed #ClearHistoryRVA:hover {
+  color: #2078ef;
+}
+.recently-viewed #ClearHistoryRVA:hover {
+  text-decoration: underline;
+}
+.recently-viewed .full {
+  padding: 0 40px;
+}
+.recently-viewed .inner {
+  height: 107px;
+  overflow: hidden;
+  position: relative;
+}
+.recently-viewed ul {
+  height: 107px;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+.recently-viewed .left-arrow,
+.recently-viewed .right-arrow {
+  height: 105px;
+  width: 40px;
+}
+.recently-viewed .left-arrow {
+  float: left;
+}
+.recently-viewed .right-arrow {
+  float: right;
+}
+.recently-viewed .arrow-prev-grey,
+.recently-viewed .arrow-next-grey {
+  margin: 38px 10px 10px;
+}
+.recently-viewed li {
+  border: solid 1px #cccccc;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  cursor: pointer;
+  float: left;
+  margin-right: 10px;
+  position: relative;
+  width: 258px;
+}
+.recently-viewed li.hover {
+  background-color: #f2f2f2;
+}
+.recently-viewed li:last-child {
+  margin-right: 0;
+}
+.recently-viewed li .close-x {
+  float: right;
+  margin: -2px -2px 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.recently-viewed li .image {
+  display: table;
+  float: left;
+  height: 105px;
+  position: relative;
+  width: 105px;
+}
+.recently-viewed li .image div {
+  background-color: #ffffff;
+  border: solid 1px #cccccc;
+  display: table-cell;
+  height: 85px;
+  line-height: 82px;
+  margin: 9px;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  width: 85px;
+  z-index: 1;
+}
+.recently-viewed li .image img {
+  max-height: 85px;
+  max-width: 85px;
+}
+.recently-viewed li .urgent-ribbon,
+.recently-viewed li .reduced-ribbon {
+  height: 47px;
+  position: absolute;
+  width: 47px;
+  z-index: 2;
+}
+.recently-viewed li.highlight {
+  background: #deeefd;
+}
+.recently-viewed li.highlight.hover {
+  background: #d8e7f3;
+}
+.recently-viewed li .title {
+  display: block;
+  float: left;
+  height: 60px;
+  line-height: 15px;
+  margin: 10px 0;
+  overflow: hidden;
+  width: 135px;
+}
+.recently-viewed li .title a {
+  color: #000066;
+  text-decoration: none;
+}
+.recently-viewed li .title a:hover {
+  color: #2078ef;
+}
+.recently-viewed li .title a:hover {
+  text-decoration: underline;
+}
+.recently-viewed li .title a:visited {
+  color: #b159a3;
+}
+.recently-viewed li .price {
+  font-weight: bold;
+  height: 12px;
+  padding-top: 12px;
+}
