@@ -35,10 +35,10 @@ class RVAItem extends React.Component {
         return (
             <li className="js-hover" data-link={'/v-view-details.html?adId='+this.props.item.adId}>
                 <div className="image"><div>
-                    <img src={this.props.item.imageUrl === null ? 'http://ca.classistatic.com/static/V/2014.16.10/img/placeholder.gif' : this.props.item.imageUrl}/>
+                    <img alt="" src={this.props.item.imageUrl === null ? 'http://ca.classistatic.com/static/V/2014.16.10/img/placeholder.gif' : this.props.item.imageUrl}/>
                 </div></div>
                 <div className="title"><a href={'/v-view-details.html?adId='+this.props.item.adId}>{this.props.item.title}</a></div>
-                <div className="price">{this.props.item.price}</div>
+                <div className="price"><span className="sr-only">Price</span> {this.props.item.price}</div>
                 <button className="close-x" title="Remove" data-id="{this.props.item.adId}" onClick={this.removeItem.bind(this)}>Remove</button>
             </li>
 
