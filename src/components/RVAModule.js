@@ -5,6 +5,9 @@ import ReactDOM from 'react-dom';
 
 import $ from 'jquery';
 import RVAItem from './RVAItem';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as Actions from '../actions';
 
 class RVAModule extends React.Component {
     constructor() {
@@ -17,17 +20,8 @@ class RVAModule extends React.Component {
         };
     }
     componentDidMount() {
-        this.loadRVA().then(() => {
-            this.initRVA();
-        });
-    }
-    loadRVA() {
-        var jqXHR = $.get('https://api.myjson.com/bins/2t2ql', function(data) {
-            this.setState({
-                items: data
-            });
-        }.bind(this));
-        return jqXHR;
+        this.context.store.dispatch(Actions.getAds());
+        this.initRVA();
     }
     initRVA() {
 
@@ -117,7 +111,7 @@ class RVAModule extends React.Component {
         if (this.state.rightDisabled) {
             btnRightClass += ' disabled';
         }
-        if (this.state.items.length) {
+        if (this.props.ads.length) {
             return (
 
                 <div className="layout-0">
@@ -131,7 +125,7 @@ class RVAModule extends React.Component {
                         <div className="full">
                             <div className="inner">
                                 <ul style={this.listStyle}>
-                                {this.state.items.map(function(item){
+                                {this.props.ads.map(function(item){
                                     return (
                                         <RVAItem key={item.adId} RVAInstance={RVAInstance} item={item} />
                                     );
@@ -149,10 +143,26 @@ class RVAModule extends React.Component {
     }
 }
 
+RVAModule.contextTypes = {
+    store: React.PropTypes.object
+};
+
 RVAModule.displayName = 'RVAModule';
 
 RVAModule.defaultProps = {
     listStyle: { width: '2000px' }
 };
 
-export default RVAModule;
+function mapStateToProps(state) {
+    return {
+        ads: state.ads
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators(Actions, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RVAModule);

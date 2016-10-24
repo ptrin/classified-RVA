@@ -5,7 +5,11 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 
 class RVAItem extends React.Component {
+    componentDidMount() {
+        console.log( this.props );
+    }
     removeItem() {
+        // removeAd(this.props.item.adId);
         let $item = $(ReactDOM.findDOMNode(this));
         let RVAInstance = this.props.RVAInstance;
         let adId = this.props.item.adId;
@@ -45,6 +49,10 @@ class RVAItem extends React.Component {
         )
     }
 }
+
+RVAItem.contextTypes = {
+    store: React.PropTypes.object
+};
 
 RVAItem.displayName = 'RVAItem';
 
